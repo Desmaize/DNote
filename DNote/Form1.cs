@@ -187,25 +187,19 @@ namespace DNote
 
             }
 
-            public void RunLocalCodeFileInfo(String RunLocalCodeFileInfo)
-            {
-            FileInfo toRunLocal = new FileInfo(RunLocalCodeFileInfo);
-            string TestFilePath = @"C:\Users\Anrijs\Documents\DNote\Data" + toRunLocal;
-            }
-
             private void RunLocalCodeInBrowser_Click(object sender, EventArgs e)
             {
 
                 string OpenFileName = openFileDialog1.FileName;
 
-                string path = @"C:\Users\Anrijs\Documents\DNote_Data";
+                string path = @"C:\Users\" + Environment.UserName + "\\Documents\\DNote_Data";
                 if (!Directory.Exists(path))
                 {
                     Directory.CreateDirectory(path);
                 }
 
-                string RunLocalURL = @"C:\Users\Anrijs\Documents\DNote_Data\test.html";
-                if(RunLocalFromExsistingFile.Checked == true) 
+                string RunLocalURL = @"C:\Users\" + Environment.UserName + "\\Documents\\DNote_Data\\test.html";
+                if (RunLocalFromExsistingFile.Checked == true)
                 {
 
                     webBrowser1.Navigate(OpenFileName);
@@ -217,7 +211,7 @@ namespace DNote
                 }
 
 
-                string NewFilePath = @"C:\Users\Anrijs\Documents\DNote_Data\test.html";
+                string NewFilePath = @"C:\Users\" + Environment.UserName + "\\Documents\\DNote_Data\\test.html";
 
                 try
                 {
@@ -239,10 +233,9 @@ namespace DNote
                     MessageBox.Show("Well, this is bad: " + ex.ToString(), "Error");
 
                 }
-               
+
 
             }
-
             private void RunOnlineCodeInBrowser_Click(object sender, EventArgs e)
             {
 
