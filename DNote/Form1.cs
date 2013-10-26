@@ -199,6 +199,18 @@ namespace DNote
                 }
 
                 string RunLocalURL = @"C:\Users\" + Environment.UserName + "\\Documents\\DNote_Data\\test.html";
+
+                if(comboBox1.Text == "HTML")
+                { 
+                RunLocalURL = @"C:\Users\" + Environment.UserName + "\\Documents\\DNote_Data\\test.html";
+                }
+                if (comboBox1.Text == "PHP")
+                {
+                RunLocalURL = @"C:\Users\" + Environment.UserName + "\\Documents\\DNote_Data\\test.php";
+                }
+
+
+
                 if (RunLocalFromExsistingFile.Checked == true)
                 {
 
@@ -212,6 +224,19 @@ namespace DNote
 
 
                 string NewFilePath = @"C:\Users\" + Environment.UserName + "\\Documents\\DNote_Data\\test.html";
+
+                if(comboBox1.Text == "HTML")
+                {
+
+                NewFilePath = @"C:\Users\" + Environment.UserName + "\\Documents\\DNote_Data\\test.html";
+
+                }
+                if (comboBox1.Text == "PHP")
+                {
+
+                    NewFilePath = @"C:\Users\" + Environment.UserName + "\\Documents\\DNote_Data\\test.php";
+
+                }
 
                 try
                 {
@@ -387,6 +412,11 @@ namespace DNote
             private void exitToolStripMenuItem_Click(object sender, EventArgs e)
             {
                 this.Close();
+            }
+
+            private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+            {
+
             }
 
             
