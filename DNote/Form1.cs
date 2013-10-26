@@ -124,6 +124,7 @@ namespace DNote
         public void Delete(String FileToDelete)
         {
             try {
+
             string OpenFileName = openFileDialog1.FileName;
             string FtpHost = FtpHostBox.Text.ToString();
             string FtpUsername = FtpUsernameBox.Text.ToString();
@@ -142,22 +143,13 @@ namespace DNote
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Error: " + ex.ToString(), "Error");
                 System.Media.SystemSounds.Beep.Play();
+                MessageBox.Show("Error: " + ex.ToString(), "Error");
             }
         }
 
         private void OpenOnlineButton_Click(object sender, EventArgs e) {
 
-            /*
-
-                
-
-                string OpenOnlineString = new WebClient().DownloadString(OpenOnlineFileURL);
-
-                textBox2.Text = OpenOnlineString;
-              
-                */
                 try {
                 string OpenOnlineFileURL = OpenOnlineBox.Text;
 
@@ -171,8 +163,6 @@ namespace DNote
         }
 
             string ReadTextFromUrl(string url) {
-            // WebClient is still convenient
-            // Assume UTF8, but detect BOM - could also honor response charset I suppose
             using (var client = new WebClient())
             using (var stream = client.OpenRead(url))
             using (var textReader = new StreamReader(stream, Encoding.UTF8, true)) {
@@ -189,6 +179,7 @@ namespace DNote
 
             private void RunLocalCodeInBrowser_Click(object sender, EventArgs e)
             {
+
 
                 string OpenFileName = openFileDialog1.FileName;
 
@@ -417,6 +408,42 @@ namespace DNote
             private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
             {
 
+            }
+
+            public void textBox2_TextChanged_1(object sender, EventArgs e)
+            {
+
+            }
+
+            private void greenToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                textBox2.ForeColor = Color.LimeGreen;
+            }
+
+            private void whiteToolStripMenuItem1_Click(object sender, EventArgs e)
+            {
+                textBox2.BackColor = Color.White;
+            }
+
+            private void blackToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                textBox2.BackColor = Color.Black;
+            }
+
+            private void greenToolStripMenuItem1_Click(object sender, EventArgs e)
+            {
+                textBox2.BackColor = Color.Green;
+            }
+
+            private void blueToolStripMenuItem1_Click(object sender, EventArgs e)
+            {
+                textBox2.BackColor = Color.Blue;
+            }
+
+            private void customToolStripMenuItem_Click(object sender, EventArgs e)
+            {
+                FontSize CustomFontSizeWindow = new FontSize(this);
+                CustomFontSizeWindow.ShowDialog();
             }
 
             
