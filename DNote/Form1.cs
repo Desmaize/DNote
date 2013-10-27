@@ -446,6 +446,21 @@ namespace DNote
                 CustomFontSizeWindow.ShowDialog();
             }
 
+            public void textBox1_FormClosing(object sender, FormClosingEventArgs e)
+            {
+
+                DialogResult dialog = MessageBox.Show("Do you really want to exit?",
+                    "Exit", MessageBoxButtons.YesNo);
+                if (dialog == DialogResult.Yes)
+                {
+                    Application.ExitThread();
+                }
+                else if (dialog == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
+            }
+
             
 
         }
